@@ -12,6 +12,7 @@ The Stock Dashboard is a web application that allows users to view stock prices,
 
 ## Requirements
 
+index.html needs to be in a folder called: "templates"
 Before you can run the application, you'll need the following dependencies:
 
 - Python 3.7+
@@ -20,5 +21,7 @@ Before you can run the application, you'll need the following dependencies:
 - praw
 - requests
 - dotenv
+
+![image](https://github.com/user-attachments/assets/822d58b3-6982-42e1-bc17-5823cdc56ff2)
 
 
