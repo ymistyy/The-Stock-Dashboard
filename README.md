@@ -24,4 +24,5 @@ Before you can run the application, you'll need the following dependencies:
 
 ![image](https://github.com/user-attachments/assets/822d58b3-6982-42e1-bc17-5823cdc56ff2)
 
+![image](https://github.com/user-attachments/assets/4ee7b7f7-bad7-4c01-b8a4-55f7b139b418)
 
