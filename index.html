@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Stock Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: rgb(65, 77, 83);
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h1, h2 {
+            color: #333;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+        }
+        .stock-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .stock-table th, .stock-table td {
+            padding: 10px;
+            text-align: left;
+        }
+        .stock-table th {
+            background: #333;
+            color: white;
+        }
+        .stock-table td {
+            border-bottom: 1px solid #ddd;
+        }
+        .news-item, .reddit-post {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .news-item a, .reddit-post a {
+            text-decoration: none;
+            color: #0073e6;
+        }
+        .news-item a:hover, .reddit-post a:hover {
+            text-decoration: underline;
+        }
+        .positive {
+            color: green;
+        }
+        .negative {
+            color: red;
+        }
+        footer {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid #ddd;
+            text-align: center;
+        }
+   
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Stock Dashboard</h1>
+
+        <h2>Stock Prices</h2>
+        <table class="stock-table">
+            <tr>
+                <th>Stock</th>
+                <th>Price (€)</th>
+                <th>Change (€)</th>
+                <th>Change (%)</th>
+                <th>Graph</th>
+            </tr>
+            {% for stock, data in stocks.items() %}
+            <tr>
+                <td><strong>{{ stock }}</strong></td>
+                <td>{{ data.price }}</td>
+                <td class="{% if data.change >= 0 %}positive{% else %}negative{% endif %}">
+                    {{ data.change }}
+                </td>
+                <td class="{% if data.percent_change >= 0 %}positive{% else %}negative{% endif %}">
+                    {{ data.percent_change }}%
+                </td>
+                <td><a class="stock-link" href="https://finance.yahoo.com/quote/{{ stock }}/chart" target="_blank">View Chart</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+        <h2>Reddit posts</h2>
+        {% for post in reddit_posts %}
+        <div class="reddit-post" data-date="{{ post.date }}" data-stock="{{ post.stock }}">
+            <a href="{{ post.url }}" target="_blank">{{ post.title }}</a>
+        </div>
+        {% endfor %}
+
+        <footer>
+            <p>Powered by <a href="https://www.python.org/">Python</a> and <a href="https://flask.palletsprojects.com/">Flask</a></p>
+            <p>A <a href="https://github.com/ymistyy" target="_blank">ymisty</a> project!</p>
+        </footer>
+    </div>
+</body>
+</html>
