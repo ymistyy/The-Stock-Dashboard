@@ -22,6 +22,12 @@ Before you can run the application, you'll need the following dependencies:
 - requests
 - dotenv
 
+<h2 id="environment-variables">Environment Variables</h2>
+    <p>Add your Reddit credentials to the <code>.env</code> file:</p>
+    <pre><code>REDDIT_CLIENT_ID=your_client_id
+REDDIT_CLIENT_SECRET=your_client_secret
+REDDIT_USER_AGENT=your_user_agent</code></pre>
+
 ![image](https://github.com/user-attachments/assets/822d58b3-6982-42e1-bc17-5823cdc56ff2)
 
 ![image](https://github.com/user-attachments/assets/4ee7b7f7-bad7-4c01-b8a4-55f7b139b418)
